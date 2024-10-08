@@ -11,6 +11,7 @@ gem 'pg'
 
 gem 'us_core_test_kit', '0.6.5'
 gem 'ipa_test_kit', '0.3.4'
+gem 'au_core_test_kit', git: 'https://github.com/hl7au/au-fhir-core-inferno'
 
 gem 'sidekiq-cron'
 
