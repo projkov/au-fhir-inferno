@@ -12,6 +12,8 @@ gem 'pg'
 gem 'us_core_test_kit', '0.6.5'
 gem 'ipa_test_kit', '0.3.4'
 gem 'au_core_test_kit', git: 'https://github.com/hl7au/au-fhir-core-inferno'
+gem 'au_ips_inferno', git: 'https://github.com/beda-software/au-ips-inferno'
+gem 'validation_test_kit', git: 'https://github.com/beda-software/validation-test-kit'
 
 gem 'sidekiq-cron'
 

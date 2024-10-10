@@ -1,4 +1,18 @@
 GIT
+  remote: https://github.com/beda-software/au-ips-inferno
+  revision: 955b36f665befffd829967d1680f4d966cabf3cc
+  specs:
+    au_ips_inferno (0.0.1)
+      inferno_core (~> 0.4.38)
+
+GIT
+  remote: https://github.com/beda-software/validation-test-kit
+  revision: 3438159ae5860216d37c559725fbfdc316ad745c
+  specs:
+    validation_test_kit (0.0.1)
+      inferno_core (>= 0.4.2)
+
+GIT
   remote: https://github.com/hl7au/au-fhir-core-inferno
   revision: 92ab51e68706fb68ac1a1dc725a281c6f28a5e85
   specs:
@@ -350,6 +364,7 @@ PLATFORMS
 
 DEPENDENCIES
   au_core_test_kit!
+  au_ips_inferno!
   database_cleaner-sequel (~> 1.8)
   factory_bot (~> 6.1)
   ipa_test_kit (= 0.3.4)
@@ -358,6 +373,7 @@ DEPENDENCIES
   rspec (~> 3.10)
   sidekiq-cron
   us_core_test_kit (= 0.6.5)
+  validation_test_kit!
   webmock (~> 3.11)
 
 BUNDLED WITH
