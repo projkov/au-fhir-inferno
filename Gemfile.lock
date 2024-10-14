@@ -1,9 +1,18 @@
 GIT
   remote: https://github.com/beda-software/au-ips-inferno
-  revision: 955b36f665befffd829967d1680f4d966cabf3cc
+  revision: 7ce238858e07a8a46d934d2b46423d757cd53446
+  ref: 7ce238858e07a8a46d934d2b46423d757cd53446
   specs:
     au_ips_inferno (0.0.1)
       inferno_core (~> 0.4.38)
+
+GIT
+  remote: https://github.com/beda-software/ips-test-kit
+  revision: c84ae59395c36422364cdf733b4e24f5b64a5670
+  ref: c84ae59395c36422364cdf733b4e24f5b64a5670
+  specs:
+    ips_test_kit (0.10.1)
+      inferno_core (>= 0.4.37)
 
 GIT
   remote: https://github.com/beda-software/validation-test-kit
@@ -19,6 +28,15 @@ GIT
     au_core_test_kit (0.0.14)
       inferno_core (>= 0.4.2)
       smart_app_launch_test_kit (>= 0.4.0)
+      tls_test_kit (~> 0.2.0)
+
+GIT
+  remote: https://github.com/inferno-framework/ipa-test-kit
+  revision: af4c5cc2d295807e4045df8bb2f2cb1940e9953f
+  specs:
+    ipa_test_kit (0.4.1)
+      inferno_core (>= 0.4.37)
+      smart_app_launch_test_kit (~> 0.3)
       tls_test_kit (~> 0.2.0)
 
 GEM
@@ -359,6 +377,8 @@ DEPENDENCIES
   au_ips_inferno!
   database_cleaner-sequel (~> 1.8)
   factory_bot (~> 6.1)
+  ipa_test_kit!
+  ips_test_kit!
   jekyll
   pg
   rspec (~> 3.10)
