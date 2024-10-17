@@ -1,8 +1,5 @@
-version: '2.2'
+version: '3'
 services:
-###
-### Core Inferno Services
-###
   inferno_web:
     build:
       context: ./
@@ -12,8 +9,10 @@ services:
       - ./resources:/opt/inferno/resources
       - ./_site:/opt/inferno/_site
     depends_on:
-      - validator_service
+      - validator-api
       - inferno_db
+    environment:
+      TX_SERVER_URL: https://tx.dev.hl7.org.au/fhir
   inferno_worker:
     build:
       context: ./
@@ -25,6 +24,8 @@ services:
     depends_on:
       - redis
       - inferno_db
+    environment:
+      - FHIR_RESOURCE_VALIDATOR_URL=http://validator-api:3500
   inferno_worker_2:
     build:
       context: ./
@@ -36,6 +37,8 @@ services:
     depends_on:
       - redis
       - inferno_db
+    environment:
+      - FHIR_RESOURCE_VALIDATOR_URL=http://validator-api:3500
   inferno_db:
     image: postgres:14.1-alpine
     mem_limit: 600m
@@ -46,9 +49,6 @@ services:
     environment:
       POSTGRES_HOST_AUTH_METHOD: trust
       POSTGRES_DB: inferno_production
-###
-### Required Services
-###
   nginx:
     image: nginx
     volumes:
@@ -64,7 +64,7 @@ services:
     mem_limit: 100m
     restart: unless-stopped
     depends_on:
-      - fhir_validator_app
+      - validator-api
   redis:
     image: redis
     volumes:
@@ -72,49 +72,9 @@ services:
     command: redis-server --appendonly yes
     mem_limit: 100m
     restart: unless-stopped
-###
-### Validators
-###
-  validator_service:
-    image: infernocommunity/fhir-validator-service:v2.3.2
+  validator-api:
+    image: pavelrozhkov/wrapper:6.3.11
+    environment:
+      SESSION_CACHE_DURATION: -1
     volumes:
       - ./lib/inferno_platform_template/igs:/home/igs
-    mem_limit: 11500m
-    restart: unless-stopped
-  fhir_validator_app:
-    image: infernocommunity/fhir-validator-app
-    depends_on:
-      - validator_service
-    environment:
-      EXTERNAL_VALIDATOR_URL: /validatorapi
-      VALIDATOR_BASE_PATH: /validator
-    mem_limit: 100m
-    restart: unless-stopped
-###
-### Other Services
-### Example of using the 'Inferno Reference Server below'
-###
-
-# inferno_reference_server:
-#   image: infernocommunity/inferno-reference-server:v2.2.0
-#   mem_limit: 3000m
-#   restart: unless-stopped
-#   ports:
-#     - "8080:8080"
-#   volumes:
-#     - ./fhir_resources:/var/lib/jetty/resources
-#   environment:
-#     - CUSTOM_BEARER_TOKEN=SAMPLE_TOKEN
-#     - READ_ONLY=true
-#   depends_on:
-#     - db
-# db:
-#   image: postgres:9.6-alpine
-#   environment:
-#     - POSTGRES_HOST_AUTH_METHOD=trust
-#   volumes:
-#     - fhir-pgdata:/var/lib/postgresql/data
-#   restart: unless-stopped
-#   mem_limit: 600m
-# volumes:
-#  fhir-pgdata:
