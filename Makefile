@@ -1,21 +1,36 @@
+compose = docker compose
+
 .PHONY: setup run down full_restart
 
-setup:
-	docker compose build
-	docker compose up -d
-	docker compose exec app python manage.py migrate
-	docker compose exec app python manage.py createsuperuser
+pull:
+	$(compose) pull
 
-run:
-	docker compose build
-	docker compose up
+build:
+	$(compose) build
+
+up:
+	$(compose) up
+
+stop:
+	$(compose) stop
 
 down:
+	$(compose) down
+
+remove_data:
 	sudo rm -rf data/pg
 	sudo rm -rf data/redis
-	docker compose down
 
-full_restart:
-	down
-	setup
-	run
+generate:
+	$(compose) run inferno_web bundle exec rake web:generate
+
+migrate:
+	$(compose) run inferno_web /opt/inferno/migrate.sh
+
+down_app: stop down remove_data
+
+setup: pull build generate migrate
+
+run: build up
+
+full_restart: down_app setup run
