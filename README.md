@@ -38,6 +38,29 @@ across multiple Test Kits, they also:
 If you would like to set up a platform, this is the place to start.  Please
 remember that this is under heavy development and is not yet stable.
 
+## Contributing to Inferno Test Kit Platform and Reporting Issues
+
+1. Discuss an issue in chat.fhir.org
+If you have a question, feature request, or proposed change, the best place to start is Zulip i.e. the https://chat.fhir.org/#narrow/stream/179309-inferno
+
+If you're unable to find an open request, please create a GitHub to:
+contribute Test suites or Code to the repository: state your details and the nature of the changes to be contributed
+suggest improvements or enhancements to the project
+
+We appreciate your contributions to improving this test suite. **If you encounter any issues or have suggestions for enhancements, please follow the steps below to report them**:
+
+1. **Search for Existing Issues**:
+Before submitting a new issue, please check the [Issues section](https://github.com/hl7au/au-fhir-inferno/issues) to see if the problem or suggestion has already been reported. If you find an existing issue, you can add your comments or additional information to it.
+2. **Open a New Issue:**
+If you do not find a similar issue, you can open a [new one](https://github.com/hl7au/au-fhir-inferno/issues/new). Click on the New Issue button and provide the following details:
+```
+Title: A brief and descriptive title for the issue.
+Description: A detailed description of the issue, including:
+1. Steps to reproduce the issue.
+2. Expected and actual behavior.
+3. Screenshots or another related information (if applicable).
+```
+
 ## Getting Started
 
 1. Clone the Inferno Platform Template repository: To get started, you can
