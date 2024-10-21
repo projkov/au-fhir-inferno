@@ -10,7 +10,7 @@ The **AU FHIR INFERNO** project uses Jekyll to manage static pages written in Ma
 ### Types of Content We Manage:
 * **Test Kits**
   * **How**: Use any file from `web/_test_kits/` as a template, copy its content into a new file, and save.
-  * **What**:
+  * **What**: https://github.com/hl7au/au-fhir-inferno/blob/master/web/_test_kits/au-core.md?plain=1
     * Title
     * Preview text
     * Full description
@@ -23,32 +23,32 @@ The **AU FHIR INFERNO** project uses Jekyll to manage static pages written in Ma
 
 * **News** (displayed on the `/news` page and homepage)
   * **How**: Use any file from `web/_news/` as a template, copy its content into a new file, and save.
-  * **What**: 
+  * **What**: https://github.com/hl7au/au-fhir-inferno/blob/master/web/_news/2024-03-example-news-article.md?plain=1
 
 * **Events** (displayed on the `/events` page and homepage)
   * **How**: Edit the file located at `web/_data/events.yml` and add a new item to the `event_list` array.
-  * **What**: 
+  * **What**: https://github.com/hl7au/au-fhir-inferno/blob/master/web/_data/events.yml
 
 * **About Page**
   * **How**: Edit the file at `web/about/index.html`.
-  * **What**:
+  * **What**: https://github.com/hl7au/au-fhir-inferno/blob/master/web/about/index.html
 
 * **Disclaimer Bar**
   * **How**: Edit the file at `web/_includes/disclaimer_bar.html`.
-  * **What**:
+  * **What**: https://github.com/hl7au/au-fhir-inferno/blob/master/web/_includes/disclaimer_bar.html
 
 * **Site Title in the Header** (We can also add a logo if needed.)
   * **How**: Edit the file at `web/_includes/header.html`.
-  * **What**:
+  * **What**: https://github.com/hl7au/au-fhir-inferno/blob/master/web/_includes/header.html
 
 * **Footer Content**
   * **How**: Edit the file at `web/_includes/footer.html`.
-  * **What**:
+  * **What**: https://github.com/hl7au/au-fhir-inferno/blob/master/web/_includes/footer.html
 
 * **Main Page**
   * **Main Page Description**
     * **How**: Edit the file at `web/_config.yml`.
-    * **What**:
+    * **What**: https://github.com/hl7au/au-fhir-inferno/blob/f52a3dc84b6411e191250420b0e98b5c4218e9dd/web/_config.yml#L7
   * **Quick Links on the Main Page**
     * **How**: Edit the file at `web/_config.yml`.
-    * **What**:
+    * **What**: https://github.com/hl7au/au-fhir-inferno/blob/f52a3dc84b6411e191250420b0e98b5c4218e9dd/web/_config.yml#L27
