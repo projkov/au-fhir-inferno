@@ -1,9 +1,8 @@
 name: Build and Release Package
 on:
-  workflow_run:
-      workflows: [Automated Quality Control]
-      branches: [master]
-      types: [completed]
+  push:
+    branches:
+      - master
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository }}
