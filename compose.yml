@@ -26,19 +26,6 @@ services:
       - inferno_db
     environment:
       - FHIR_RESOURCE_VALIDATOR_URL=http://validator-api:3500
-  inferno_worker_2:
-    build:
-      context: ./
-    command: /opt/inferno/worker.sh
-    mem_limit: 2000m
-    restart: unless-stopped
-    volumes:
-      - ./resources:/opt/inferno/resources
-    depends_on:
-      - redis
-      - inferno_db
-    environment:
-      - FHIR_RESOURCE_VALIDATOR_URL=http://validator-api:3500
   inferno_db:
     image: postgres:14.1-alpine
     mem_limit: 600m
