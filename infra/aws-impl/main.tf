@@ -1,9 +1,9 @@
 locals {
-  name      = "inferno"
+  name      = "dev-inferno"
   manifests = fileset(path.module, "manifests/*.yaml")
   namespace = local.name
 
-  rds_name = "inferno-postgresql"
+  rds_name = "${local.name}-postgresql"
   region   = "ap-southeast-2"
 
   tags = {
@@ -14,7 +14,7 @@ locals {
 
 ## Inferno Application
 resource "helm_release" "inferno" {
-  name             = "inferno"
+  name             = local.name
   chart            = "../helm/inferno"
   namespace        = local.namespace
   create_namespace = true
