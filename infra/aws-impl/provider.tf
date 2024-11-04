@@ -26,10 +26,10 @@ terraform {
       version = ">= 5.34"
     }
   }
-  backend "s3" {
-    bucket = "examplebucket-fhir-aws"
-    region = "ap-southeast-2"
-    key    = "infra/inferno/dev.tfstate"
-    # profile = "FHIR-Admin"
-  }
+  # backend "s3" {
+  #   bucket  = "examplebucket-fhir-aws"
+  #   region  = "ap-southeast-2"
+  #   key     = "infra/inferno/au-fhir-inferno-prod.tfstate"
+  #   profile = "FHIR-Admin"
+  # }
 }
