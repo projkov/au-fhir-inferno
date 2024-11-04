@@ -74,7 +74,7 @@ jobs:
       working-directory: ${{ env.working-dir }}
       run: |
         export exitcode=0
-        terraform plan -var-file="${ENVIRONMENT}.tfvars" -detailed-exitcode -no-color -out main.tfplan || export exitcode=$?
+        terraform plan -var-file="tfvars/${ENVIRONMENT}.tfvars" -detailed-exitcode -no-color -out main.tfplan || export exitcode=$?
 
         echo "exitcode=$exitcode" >> $GITHUB_OUTPUT
         
@@ -190,5 +190,5 @@ jobs:
 
     # Terraform Apply
     - name: Terraform Apply
-      run: terraform apply -var-file="${ENVIRONMENT}.tfvars" -auto-approve main.tfplan
+      run: terraform apply -var-file="tfvars/${ENVIRONMENT}.tfvars" -auto-approve main.tfplan
       working-directory: ${{ env.working-dir }}

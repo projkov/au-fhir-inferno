@@ -36,5 +36,5 @@ variable "imageUrl" {
   description = "Image URL"
   type        = string
   default     = "ghcr.io/hl7au/au-fhir-inferno:950705169e0727babc10636c856290b5eb3e529e"
-  
+
 }
