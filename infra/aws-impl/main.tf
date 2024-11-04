@@ -1,22 +1,21 @@
 locals {
-  name      = "dev-inferno"
+  env_name  = "${var.environment}-${var.name}"
   manifests = fileset(path.module, "manifests/*.yaml")
-  namespace = local.name
 
-  rds_name = "${local.name}-postgresql"
+  rds_name = "${local.env_name}-postgresql"
   region   = "ap-southeast-2"
 
   tags = {
-    Name       = local.name
-    GithubRepo = "https://github.com/hl7au/au-fhir-core-inferno"
+    Name       = local.env_name
+    GithubRepo = "https://github.com/hl7au/au-fhir-inferno"
   }
 }
 
 ## Inferno Application
 resource "helm_release" "inferno" {
-  name             = local.name
+  name             = local.env_name
   chart            = "../helm/inferno"
-  namespace        = local.namespace
+  namespace        = local.env_name
   create_namespace = true
 
   values = [
@@ -35,6 +34,16 @@ resource "helm_release" "inferno" {
   set_sensitive {
     name  = "postgresql.externaldbhost"
     value = split(":", module.rds.db_instance_endpoint)[0] # rds module provides endpoint with the port but inferno expects only the hostname
+  }
+
+  set {
+    name  = "externalDomain"
+    value = var.external_domain_name
+  }
+
+  set {
+    name  = "inferno.imageUrl"
+    value = var.imageUrl
   }
 
   depends_on = [
