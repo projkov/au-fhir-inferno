@@ -190,5 +190,5 @@ jobs:
 
     # Terraform Apply
     - name: Terraform Apply
-      run: terraform apply -var-file="tfvars/${ENVIRONMENT}.tfvars" -auto-approve main.tfplan
+      run: terraform apply -auto-approve main.tfplan
       working-directory: ${{ env.working-dir }}
