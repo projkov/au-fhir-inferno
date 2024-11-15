@@ -2,6 +2,9 @@
 
 source "https://rubygems.org"
 
+ruby '3.1.2'
+
+gem 'inferno_core', '~> 0.4.44'
 gem 'pg'
 
 # This loads the test kit suites
