@@ -6,8 +6,13 @@ metadata:
 spec:
   type: NodePort
   ports:
-    - port: 4567
-      protocol: TCP
+    - name: inferno-app
+      port: 4567
       targetPort: 4567
+      protocol: TCP
+    - name: nginx
+      port: 80
+      targetPort: 80
+      protocol: TCP
   selector:
     app: inferno-app

@@ -11,7 +11,7 @@ spec:
   ingressClassName: {{ .Values.controller.ingressClass }}
   tls:
     - hosts:
-        -  {{ .Values.externalDomain }}
+        - {{ .Values.externalDomain }}
       secretName: inferno-tls
   rules:
     - host: {{ .Values.externalDomain }}
@@ -30,4 +30,4 @@ spec:
               service:
                 name: inferno
                 port:
-                  number: 4567
+                  name: nginx
