@@ -18,11 +18,14 @@ down:
 	$(compose) down
 
 remove_data:
-	rm -rf data/pg
+	rm -rf data/pg/*
 	rm -rf data/redis
 
 generate:
 	$(compose) run inferno_web bundle exec rake web:generate
+
+generate_new:
+	$(compose) -f compose.generate.yml run inferno bundle exec rake web:generate
 
 migrate:
 	$(compose) run inferno_web /opt/inferno/migrate.sh
