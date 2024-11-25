@@ -15,12 +15,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-      - name: Set up permissions for data directory
-        run: |
-          mkdir -p data/pg
-          chmod -R 755 data/pg
       - name: Generate static content
-        run: make generate
+        run: make generate_new
       - name: Log in to the Container registry
         uses: docker/login-action@65b78e6e13532edd9afa3aa52ac7964289d1a9c1
         with:
