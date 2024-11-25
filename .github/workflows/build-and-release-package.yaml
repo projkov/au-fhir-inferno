@@ -19,8 +19,7 @@ jobs:
         run: make build
       - name: Set up permissions for data directory
         run: |
-          sudo chown -R $USER:$USER data
-          sudo chmod -R 755 data
+          chmod -R 755 data/pg
       - name: Generate static content
         run: make generate
       - name: Log in to the Container registry
