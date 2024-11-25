@@ -15,10 +15,9 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-      - name: Build
-        run: make build
       - name: Set up permissions for data directory
         run: |
+          mkdir -p data/pg
           chmod -R 755 data/pg
       - name: Generate static content
         run: make generate
